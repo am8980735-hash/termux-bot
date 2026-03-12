@@ -236,6 +236,10 @@ client:on("messageUpdate", function (message)
   handleCommands(message)
 end)
 
+client:on("threadCreate", function (thread)
+  thread:join()
+end)
+
 client:on("messageDelete", function (message)
   if message.webhookId then
     local modlogs = client:getChannel(snowflakes.channels.modlogs)
