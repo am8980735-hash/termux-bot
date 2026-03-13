@@ -10,7 +10,7 @@ local function wikiCommand(msg, args, meta)
   end
 
   local query = table.concat(args, " ")
-  local res, body = http.request("GET", string.format("https://wiki.termux.com/api.php?action=query&generator=search&gsrsearch=%s&gsrwhat=text&prop=info&inprop=url&format=json", querystring.urlencode(query)))
+  local res, body = http.request("GET", string.format("https://wiki.termux.dev/api.php?action=query&generator=search&gsrsearch=%s&gsrwhat=text&prop=info&inprop=url&format=json", querystring.urlencode(query)))
 
   if res.code ~= 200 then
     return string.format("I recieved a non-200 status code: %s", res.code)
